@@ -12,10 +12,10 @@ const Landing = () => {
     <div className="bg-customColor-landingbackground w-full">
       {/* Main Content */}
       <div className="flex flex-col justify-center items-center pt-14">
-        <h1 className="text-[35px] font-urbanist text-customColor-landingverydark text-4xl font-extralight">
+        <h1 className="text-[35px] font-urbanist text-center text-customColor-landingverydark md:text-4xl font-extralight">
           CONDITION BASED MONITORING AND MAINTENANCE SYSTEM
         </h1>
-        <h2 className="text-[25px] mt-5 font-urbanist text-customColor-landingverydark font-light">
+        <h2 className=" text-base md:text-[25px] mt-5 font-urbanist text-center text-customColor-landingverydark font-light">
           Empowering Maintenance with Intelligence
         </h2>
         <button
@@ -31,7 +31,7 @@ const Landing = () => {
         <img
           src={landingimg}
           alt="landingimage"
-          className="w-full h-[400px]"
+          className="w-full h-[68vh]"
         />
       </div>
     </div>

@@ -5,18 +5,18 @@ import footerimg from '../assets/footerimg.png';
 const Footer = () => {
   return (
     <div className="w-full h-[150px] bg-customColor-landingfooter relative overflow-hidden">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col md:flex-row justify-between items-center">
         {/* Left Section: QUICK LINKS */}
-        <div className='py-4 px-20'>
+        <div className="py-4 px-6 md:px-20">
           <span className="text-white font-urbanist text-lg mb-2 block">
             QUICK LINKS
           </span>
-          <div className="grid grid-cols-2 gap-y-3 gap-x-60 text-white text-sm font-light">
+          <div className="grid grid-cols-2 gap-y-2 gap-x-32 md:gap-x-60 text-white text-sm font-light ">
             <Link to="/" className="font-raleway font-normal text-[15px]">
               Home
             </Link>
             <Link to="/rul-prediction" className="font-raleway font-normal text-[15px]">
-              RUL Prediction
+              RUL
             </Link>
             <Link to="/dashboard" className="font-raleway font-normal text-[15px]">
               Dashboard
@@ -31,7 +31,11 @@ const Footer = () => {
         </div>
 
         {/* Right Section */}
-        <img src={footerimg} alt="Footer Image" className="w-[450px] mt-2" />
+        <img
+          src={footerimg}
+          alt="Footer Image"
+          className="w-[250px] md:w-[450px] mt-2"
+        />
       </div>
     </div>
   );

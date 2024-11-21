@@ -84,16 +84,17 @@ const Login = ({onLogin}) => {
 
   return (
     
-    <div 
+<div 
   className="h-screen flex flex-col items-center" 
   style={{
-    backgroundImage: `url(${bglogin})`, 
-    backgroundSize: 'cover', 
-    backgroundPosition: 'center', 
-    backgroundAttachment: 'fixed', 
+    backgroundImage: `url(${bglogin})`,
+    backgroundSize: window.innerWidth < 768 ? '450%' : window.innerWidth < 1024 ? '200%' : 'cover',
+    backgroundPosition: 'center',
+    backgroundAttachment: 'fixed',
     backgroundRepeat: 'no-repeat'
   }}
 >
+
 
       {/* Header */}
       <div className="w-full flex justify-between items-center px-6 pt-4">
@@ -107,46 +108,62 @@ const Login = ({onLogin}) => {
       </div>
 
       {/* Login Card */}
-      <div className="glassmorphic bg-[#145D69]/[0.78] w-80 md:w-[800px] md:h-[400px] p-6 grid grid-cols-2 mt-14 border rounded-xl border-solid border-white backdrop-blur-sm">
-        {/* Left Side (Login Form) */}
-        <div className="pr-4 border-r border-white flex flex-col justify-center">
-
-          <h1 className="text-2xl text-center font-light mb-6 text-white">LOGIN</h1>
-          {error && (
-            <p className="text-red-500 mb-4 text-center">{error}</p>
-          )}
-
-          <form className="ml-7" onSubmit={handleLogin}>
-            <div className="text-left">
-              <label htmlFor="userid" className="block text-white font-normal mb-1">UserID</label>
-              <input type="text" placeholder="Enter your ID" id="userid" value={userID}
-                onChange={(e) => setUserID(e.target.value)}
-                required className="w-72 px-4 py-2 rounded text-gray-700 font-raleway focus:outline-none border border-gray-300" />
-            </div>
-            <div className="text-left mt-5">
-              <label htmlFor="password" className="block text-white font-normal mb-1">Password</label>
-              <input type="password" placeholder="Enter the password" id="password" value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required className="w-72 px-4 py-2 rounded text-gray-700 font-raleway focus:outline-none border border-gray-300" />
-            </div>
-            <div className="mt-10 mr-6 text-center">
-              <button type="submit" onClick={go} className="w-32 font-medium border-solid border-white border bg-white text-[#407B7B] py-2 rounded-2xl hover:bg-[#407B7B] hover:text-white">
-                Submit
-              </button>
-            </div>
-          </form>
-        </div>
-
-        {/* Right Side (Date and Time) */}
-        <div className="flex flex-col justify-center items-center relative">
-          {/* Top Portion (Date) */}
-          <div id="date" className="text-white tracking-wide text-center mb-4"></div>
-          {/* Divider */}
-          <div className="w-full border-t border-white my-2"></div>
-          {/* Bottom Portion (Time) */}
-          <div id="time" className="text-white text-center"></div>
-        </div>
+  {/* Login Card */}
+<div className="glassmorphic bg-[#145D69]/[0.78] w-80 md:w-[94%] md:h-[70%] lg:w-[800px] lg:h-[400px] p-6 grid grid-cols-1 md:grid-cols-2 mt-14 border rounded-xl border-solid border-white backdrop-blur-sm">
+  {/* Left Side (Login Form) */}
+  <div className="flex flex-col justify-center items-center md:items-center md:pl-3">
+    <h1 className="text-2xl text-center font-light mb-6 text-white">LOGIN</h1>
+    {error && (
+      <p className="text-red-500 mb-4 text-center">{error}</p>
+    )}
+    <form className="w-full max-w-xs md:max-w-md" onSubmit={handleLogin}>
+      <div className="mb-5">
+        <label htmlFor="userid" className="block text-white font-normal mb-1">UserID</label>
+        <input 
+          type="text" 
+          placeholder="Enter your ID" 
+          id="userid" 
+          value={userID}
+          onChange={(e) => setUserID(e.target.value)}
+          required 
+          className="w-full px-4 py-2 rounded text-gray-700 font-raleway focus:outline-none border border-gray-300" 
+        />
       </div>
+      <div className="mb-8">
+        <label htmlFor="password" className="block text-white font-normal mb-1">Password</label>
+        <input 
+          type="password" 
+          placeholder="Enter the password" 
+          id="password" 
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required 
+          className="w-full px-4 py-2 rounded text-gray-700 font-raleway focus:outline-none border border-gray-300" 
+        />
+      </div>
+      <div className="text-center">
+        <button 
+          type="submit" 
+          onClick={go} 
+          className="w-32 font-medium border-solid border-white border bg-white text-[#407B7B] py-2 rounded-2xl hover:bg-[#407B7B] hover:text-white"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+
+  {/* Right Side (Date and Time) */}
+  <div className="hidden md:flex flex-col justify-center md:border-l md:ml-8 overflow-hidden items-center relative">
+    {/* Top Portion (Date) */}
+    <div id="date" className="text-white tracking-wide text-center mb-4"></div>
+    {/* Divider */}
+    <div className="w-full border-t border-white my-2 hidden md:block"></div>
+    {/* Bottom Portion (Time) */}
+    <div id="time" className="text-white text-center"></div>
+  </div>
+</div>
+
     </div>
   );
 }

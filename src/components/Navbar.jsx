@@ -63,7 +63,7 @@ const Navbar = ({ onLogout }) => {
           </ul>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden md:flex flex-col justify-end">
+          <div className="lg:hidden md:flex text-customColor-loginsubmitdark  flex-col justify-end">
             <button onClick={toggleNavbar}>
               {mobileDrawerOpen ? <X /> : <Menu />}
             </button>
@@ -72,27 +72,52 @@ const Navbar = ({ onLogout }) => {
 
         {/* Mobile Drawer */}
         {mobileDrawerOpen && (
-          <div className="fixed right-0 z-20 bg-neutral-800 w-full p-8 flex flex-col justify-center items-center lg:hidden">
-            <ul className="space-y-4">
-              {navItems.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex justify-center items-center py-2 px-3 border-2 rounded-[20px]"
-                >
-                  <Link to={item.path} className="text-white">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-              <button
-                onClick={onLogout}
-                className="bg-red-500 hover:bg-red-600 text-white py-2 px-3 mt-6 rounded-md"
-              >
-                Logout
-              </button>
-            </ul>
-          </div>
-        )}
+  <div
+    className="fixed top-0 right-0 z-20 bg-transparent backdrop-blur-lg w-full p-8 flex flex-col justify-between items-center lg:hidden"
+    onClick={(e) => {
+      // Prevents closing the navbar if clicked inside
+      e.stopPropagation();
+    }}
+  >
+    {/* Close Button */}
+    <button
+      className="absolute top-4 right-4 text-white text-2xl"
+      onClick={() => setMobileDrawerOpen(false)}
+    >
+      <X size={24} /> {/* Use the X icon from lucide-react */}
+    </button>
+
+    <ul className="space-y-4 w-full flex flex-col items-center">
+      {navItems.map((item, index) => (
+        <li
+          key={index}
+          className="flex justify-center items-center py-2 px-3 border-2 rounded-[20px]"
+        >
+          <Link to={item.path} className="text-white">
+            {item.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+
+    {/* Centering the Logout button */}
+    <div className="mt-auto flex justify-center items-center w-full">
+      <button
+        onClick={onLogout}
+        className="bg-red-500 hover:bg-red-600 mt-6 text-white py-2 px-3 rounded-md text-center"
+      >
+        Logout
+      </button>
+    </div>
+  </div>
+)}
+
+{/* Close mobile menu if clicked outside */}
+<div
+  className={`fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 ${mobileDrawerOpen ? '' : 'hidden'}`}
+  onClick={() => setMobileDrawerOpen(false)} // Close navbar when clicked outside
+/>
+   
       </div>
     </nav>
   );
