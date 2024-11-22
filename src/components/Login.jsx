@@ -43,7 +43,7 @@ const Login = ({onLogin}) => {
       const formattedHours = hours % 12 || 12;
 
       dateElement.innerHTML = `
-        <div>
+        <div class=" mt-0 md:mt-4 lg:mt-0">
             <span class="text-[64px] font-light">${day}</span>
             <span class="text-[28px] font-light">${daySuffix}</span>
             <span class="text-[28px] uppercase ml-3">${month}</span>

@@ -7,10 +7,26 @@ const Chatbot = () => {
 
   // Static FAQ Data
   const faqs = [
-    { question: 'What is the purpose of this platform?', answer: 'This platform is designed to assist railway officials in monitoring the health of railway Tunnel Booster Fans & managing schedules efficiently.' },
-    { question: 'How do I start monitoring a system?', answer: 'Navigate to the Dashboard section and click on the Start Monitoring button to begin tracking system statistics.' },
-    { question: 'What is Remaining Useful Life (RUL)?', answer: 'RUL refers to the estimated time remaining before a system or component needs replacement or repair, calculated based on current performance data.' },
-    { question: 'What should I do if I face login issues?', answer: 'Ensure your internet connection is stable. Clear your browser cache and try again.' },
+    {
+      question: 'What is the purpose of this platform?',
+      answer:
+        'This platform is designed to assist railway officials in monitoring the health of railway Tunnel Booster Fans & managing schedules efficiently.',
+    },
+    {
+      question: 'How do I start monitoring a system?',
+      answer:
+        'Navigate to the Dashboard section and click on the Start Monitoring button to begin tracking system statistics.',
+    },
+    {
+      question: 'What is Remaining Useful Life (RUL)?',
+      answer:
+        'RUL refers to the estimated time remaining before a system or component needs replacement or repair, calculated based on current performance data.',
+    },
+    {
+      question: 'What should I do if I face login issues?',
+      answer:
+        'Ensure your internet connection is stable. Clear your browser cache and try again.',
+    },
   ];
 
   // Function to handle query submission
@@ -32,14 +48,20 @@ const Chatbot = () => {
 
   return (
     <div className="bg-customColor-otherpagesbackground w-full flex flex-col items-center py-8">
-      <div className="min-w-[1300px] bg-customColor-rmcardbackground rounded-lg shadow-xl p-8">
+      <div
+        className="
+          bg-customColor-rmcardbackground rounded-lg shadow-xl p-8
+          w-full max-w-screen-sm md:max-w-screen-md lg:min-w-[1300px] lg:max-w-none"
+      >
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <button className="bg-[#387A79] text-white px-6 py-2 rounded-3xl hover:bg-teal-600">
+        <div className="flex flex-wrap justify-between items-center mb-8">
+          <button className="bg-[#387A79] text-white hidden md:block lg:block  px-6 py-2 rounded-3xl hover:bg-teal-600">
             Start Monitoring
           </button>
-          <h1 className="text-3xl font-medium text-gray-700">CHATBOT ASSISTANCE</h1>
-          <button className="bg-[#BE4848] text-white px-6 py-2 rounded-3xl hover:bg-red-600">
+          <h1 className="text-lg md:text-2xl lg:text-3xl font-medium text-gray-700 text-center">
+            CHATBOT ASSISTANCE
+          </h1>
+          <button className="bg-[#BE4848] text-white hidden md:block lg:block px-6 py-2 rounded-3xl hover:bg-red-600">
             Stop Monitoring
           </button>
         </div>
@@ -69,7 +91,9 @@ const Chatbot = () => {
         </div>
 
         {/* Frequently Asked Questions */}
-        <h2 className="text-3xl text-center font-medium ml-3 text-gray-700 mb-6">FREQUENTLY ASKED QUESTIONS</h2>
+        <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-medium ml-3 text-gray-700 mb-6">
+          FREQUENTLY ASKED QUESTIONS
+        </h2>
         <div>
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
@@ -77,7 +101,9 @@ const Chatbot = () => {
                 onClick={() => toggleFaq(index)}
                 className="flex justify-between items-center bg-gray-100 px-4 py-3 rounded-md border border-gray-300 cursor-pointer shadow-md"
               >
-                <span className="text-gray-700 font-medium">{faq.question}</span>
+                <span className="text-sm md:text-base lg:text-lg font-medium text-gray-700">
+                  {faq.question}
+                </span>
                 <button className="text-gray-500">
                   {faqState[index] ? '▲' : '▼'}
                 </button>
