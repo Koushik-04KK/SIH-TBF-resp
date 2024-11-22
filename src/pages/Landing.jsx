@@ -25,7 +25,7 @@ const Landing = () => {
           Start Tracking
         </button>
       </div>
-
+      
       {/* Landing Image */}
       <div>
         <img

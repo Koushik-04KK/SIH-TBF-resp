@@ -17,22 +17,36 @@ const Dashboard = () => {
           w-full max-w-[1300px] lg:min-w-[1300px]"
       >
         {/* Header */}
-        <div
-          className="flex flex-col 
-            md:flex-row md:justify-between md:items-center 
-            space-y-4 md:space-y-0 mb-8 lg:space-x-52"
-        >
-          <button className="bg-[#387A79] text-white px-4 py-2 rounded-3xl hidden md:block lg:block  hover:bg-teal-600">
-            Start Monitoring
-          </button>
-          <h1 className="text-xl lg:text-3xl font-normal text-gray-700 text-center">
-            REALTIME METRICS
-          </h1>
-          <button className="bg-[#BE4848] text-white px-4 py-2 rounded-3xl hidden md:block lg:block  hover:bg-red-600">
-            Stop Monitoring
-          </button>
-        </div>
-
+   
+      <div className="flex flex-wrap justify-center items-center mb-8 md:justify-between">
+  <button className="bg-[#387A79] text-white hidden md:block lg:block px-6 py-2 rounded-3xl hover:bg-teal-600">
+    Start Monitoring
+  </button>
+  <h1 className="text-lg md:text-2xl lg:text-3xl font-medium text-gray-700 text-center">
+    REALTIME METRICS
+  </h1>
+  <button className="bg-[#BE4848] text-white hidden md:block lg:block px-6 py-2 rounded-3xl hover:bg-red-600">
+    Stop Monitoring
+  </button>
+</div>
+        <div 
+  className="fixed bottom-0 left-0 w-full bg-white shadow-lg z-50 md:hidden"
+>
+  <div className="flex justify-between">
+    <button 
+      className="w-1/2 bg-[#387A79] text-white py-3 text-center hover:bg-teal-600 rounded-none"
+      // onClick={handleStart} // Add your start function
+    >
+      Start
+    </button>
+    <button 
+      className="w-1/2 bg-[#BE4848] text-white py-3 text-center hover:bg-red-600 rounded-none"
+      // onClick={handleStop} // Add your stop function
+    >
+      Stop
+    </button>
+  </div>
+</div>
         {/* Grid Section */}
         <div
           className="flex flex-col 

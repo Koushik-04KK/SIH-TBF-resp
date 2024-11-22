@@ -11,7 +11,14 @@ const Footer = () => {
           <span className="text-white font-urbanist text-lg mb-2 block">
             QUICK LINKS
           </span>
-          <div className="grid grid-cols-2 gap-y-2 gap-x-32 md:gap-x-60 text-white text-sm font-light ">
+          <div 
+            className="
+              grid 
+              grid-cols-3 gap-y-2 gap-x-4 
+              sm:grid-cols-2 sm:gap-x-32 sm:gap-y-2 md:gap-x-60 
+              text-white text-sm font-light
+            "
+          >
             <Link to="/" className="font-raleway font-normal text-[15px]">
               Home
             </Link>
@@ -34,7 +41,7 @@ const Footer = () => {
         <img
           src={footerimg}
           alt="Footer Image"
-          className="w-[250px] md:w-[450px] mt-2"
+          className="w-[250px] md:w-[450px] mt-2 hidden md:block"
         />
       </div>
     </div>
